@@ -11,3 +11,6 @@ His works on [Codepen](https://codepen.io/collection/AxryjG?cursor=ZD0wJm89MCZwP
 [Day 520 Activity](https://www.uidesigndaily.com/posts/figma-activity-feed-notifications-day-520)  
 [Day 932 Survey](https://www.uidesigndaily.com/posts/figma-survey-widget-submit-day-932)  
 [Day 951 Verify](https://www.uidesigndaily.com/posts/figma-verify-verification-security-day-951)  
+
+# About compiling vue sfc
+Using [http-vue-loader](https://github.com/FranckFreiburger/http-vue-loader) to load .vue file, and go with [Sass.js](https://github.com/medialize/sass.js) to compile scss in .vue file.  

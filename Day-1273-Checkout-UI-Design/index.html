@@ -5,111 +5,32 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Day 1273 Checkout UI Design</title>
-  <link rel="stylesheet" href="./index.css">
-  <script src="https://unpkg.com/vue@next"></script>
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://unpkg.com/http-vue-loader"></script>
+  <script src="/public/sass.js"></script>
 </head>
 <body>
-  <div id="app">
-    <header>
-      <h1>UI Design Daily - Day 1273: Checkout UI Design</h1>
-    </header>
-    <main>
-      <div id="card">
-        <div id="card__title">Get unlimited access to everything</div>
-        <div id="card__plan">
-          <div
-            class="card__plan__item"
-            v-for="({ name, price, period, label }, index) in plans"
-            :key="name"
-            :class="{ 'card__plan__radio--active': checkedPlan.name === name }"
-            @click="checkedPlan = plans[index]"
-          >
-            <div class="card__plan__header">
-              <div class="card__plan__radio">
-                <div class="card__plan__filled-radio" v-if="checkedPlan.name === name"></div>
-              </div>
-              <div style="margin-left: 14px">{{ name }}</div>
-            </div>
-            <div class="card__plan__body">{{ `$${price}/${period}` }}</div>
-          </div>
-        </div>
-        <div id="card__payment__title">Total billed ${{ checkedPlan.price }}</div>
-        <div id="card__payment__description">Enter your credit card details to complete subscription</div>
-        <div id="card__form">
-          <div id="card__credit-card-number">
-            <div class="card__form__input">
-              <label for="credit-card">Card number</label>
-              <input type="text" name="credit-card" v-model="creditCardNumber" />
-            </div>
-          </div>
-          <div id="card__credit-card-info">
-            <div class="card__form__input">
-              <label for="expiration-date">Expiration date</label>
-              <input type="text" name="expiration-date" placeholder="MM/YY" />
-            </div>
-            <div class="card__form__input">
-              <label for="security-code">Security code</label>
-              <input type="text" name="security-code" value="123" />
-            </div>
-          </div>
-        </div>
-        <div id="card__note">By subscribing you agree to our Use of Service. Your payment method will be charged with ${{ checkedPlan.price }} and you’ll have access to all locked features until {{ expiredDate }}.</div>
-        <button id="card__button" type="button">Pay Now</button>
-      </div>
-      <div id="card__shadow" />
-    </main>
-    <footer style="margin-bottom: 20px">
-      <a target="_blank" rel="noopener noreferrer" href="https://www.uidesigndaily.com/posts/figma-checkout-day-1273">source of design</a>
-      <a target="_blank" rel="noopener noreferrer" href="https://codepen.io/collection/DzQjZR" style="margin-left: 20px">source of code</a></footer>
+  <div id="my-app">
+    <my-component />
   </div>
-
   <script>
-    const plans = [
-      {
-        name: "Monthly",
-        price: 7,
-        period: "month",
-        label: null
-      },
-      {
-        name: "Yearly",
-        price: 50,
-        period: "year",
-        label: "Save $10"
+    const sass = new Sass();
+    httpVueLoader.langProcessor.scss = function (scssText) {
+      return new Promise(function(resolve, reject) {
+        sass.compile(scssText, function (result) {
+          if ( result.status === 0 )
+            resolve(result.text)
+          else
+            reject(result)
+        });
+      });
+    };
+    new Vue({
+      el: '#my-app',
+      components: {
+        'my-component': httpVueLoader('my-component.vue')
       }
-    ];
-    const App = {
-      computed: {
-        expiredDate() {
-          let date = new Date();
-          const period = this.checkedPlan.period === "month" ? 30 : 365;
-          date.setDate(date.getDate() + period);
-          const d = date.getDate();
-          const m = date.toLocaleString("en-us", { month: "short" });
-          const y = date.getFullYear();
-          return d + " " + m + " " + y;
-        },
-        originalCardNumber() {
-          const numberWithoutSpace = this.creditCardNumber.replace(/\s/g, "");
-          return numberWithoutSpace;
-        }
-      },
-      watch: {
-        originalCardNumber() {
-          const numberWithValidLength = this.originalCardNumber.slice(0, 16);
-          const chunkedNumber = numberWithValidLength.match(/.{1,4}/g).join(" ");
-          this.creditCardNumber = chunkedNumber;
-        }
-      },
-      data() {
-        return {
-          checkedPlan: plans[1],
-          creditCardNumber: "1234 2234",
-          plans
-        }
-      }
-    }
-    Vue.createApp(App).mount('#app');
+    });
   </script>
 </body>
 </html>
