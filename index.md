@@ -1,5 +1,5 @@
 # Motivation
-Since I saw [G Rohit](https://codepen.io/grohit) converts the design from UI Design Daily into code, I also wanna try and maybe it's a good way for me to practice.  
+Since I saw [G Rohit](https://codepen.io/grohit) converts the design from [UI Design Daily](https://www.uidesigndaily.com/) into code, I also wanna try and maybe it's a good way for me to practice.  
 His works on [Codepen](https://codepen.io/collection/AxryjG?cursor=ZD0wJm89MCZwPTEmdj00).  
 
 # My Works
