@@ -48,9 +48,9 @@
       </div>
       <div id="card__shadow" />
     </main>
-    <footer style="margin-bottom: 20px">
+    <footer style="margin-bottom: 40px">
       <a target="_blank" rel="noopener noreferrer" href="https://www.uidesigndaily.com/posts/figma-checkout-day-1273">source of design</a>
-      <a target="_blank" rel="noopener noreferrer" href="https://codepen.io/collection/DzQjZR" style="margin-left: 20px">source of code</a></footer>
+      <a target="_blank" rel="noopener noreferrer" href="https://github.com/Uier/ui-design-daily/tree/master/Day-1273-Checkout-UI-Design" style="margin-left: 20px">source of code</a></footer>
   </div>
 </template>
 

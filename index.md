@@ -6,11 +6,8 @@ His works on [Codepen](https://codepen.io/collection/AxryjG?cursor=ZD0wJm89MCZwP
 1. [Day 1273 Checkout UI Design](https://uier.github.io/ui-design-daily/Day-1273-Checkout-UI-Design)  
 
 # Todos  
-[Day 1057 Apps list](https://www.uidesigndaily.com/posts/sketch-apps-list-app-modal-day-1057)  
-[Day 824 Request email](https://www.uidesigndaily.com/posts/sketch-request-email-password-day-824)  
+[Day 1057 Apps List](https://www.uidesigndaily.com/posts/sketch-apps-list-app-modal-day-1057)  
+[Day 824 Request Email](https://www.uidesigndaily.com/posts/sketch-request-email-password-day-824)  
 [Day 520 Activity](https://www.uidesigndaily.com/posts/figma-activity-feed-notifications-day-520)  
 [Day 932 Survey](https://www.uidesigndaily.com/posts/figma-survey-widget-submit-day-932)  
 [Day 951 Verify](https://www.uidesigndaily.com/posts/figma-verify-verification-security-day-951)  
-
-# About compiling vue sfc
-Using [http-vue-loader](https://github.com/FranckFreiburger/http-vue-loader) to load .vue file, and go with [Sass.js](https://github.com/medialize/sass.js) to compile scss in .vue file.  
