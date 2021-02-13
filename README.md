@@ -18,3 +18,5 @@ NODE_ENV=production npx tailwindcss-cli@latest build ./src/tailwind.css -o ./dis
 can remove unused CSS for best performance.  
 
 我還不知道沒有加 NODE_ENV 會不會有影響，待研究  
+  
+更：噢不我還沒有成功 build 起來
