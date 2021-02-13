@@ -13,5 +13,5 @@ Since I saw [G Rohit](https://codepen.io/grohit) converts the design from [UI De
 His works on [Codepen](https://codepen.io/collection/AxryjG?cursor=ZD0wJm89MCZwPTEmdj00).  
 
 # Links
-[repo](https://github.com/Uier/ui-design-daily)
-[my github](https://github.com/Uier)
+- [repo](https://github.com/Uier/ui-design-daily)
+- [my github](https://github.com/Uier)
