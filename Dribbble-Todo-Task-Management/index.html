@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo Task Management</title>
+  <link rel="stylesheet" href="tailwind.css">
+  <script src="https://unpkg.com/vue@3.1.0"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body style="font-family: 'Montserrat', sans-serif;">
+  <!-- Header -->
+  <div class="mt-5 bg-white border-b pb-5">
+    <h1 class="font-bold text-2xl text-center text-gray-700" style="font-family: Avenir;">Dribbble - Todo Task Management</h1>
+  </div>
+
+  <div id="app" class="bg-gray-50 p-5">
+    <div class="max-w-5xl mx-auto">
+      <!-- Heading -->
+      <div>
+        <h1 class="text-3xl font-light tracking-wide">Welcome back, <span class="font-semibold">Michael</span></h1>
+      </div>
+      <!-- button group -->
+      <div class="mt-4 flex justify-end space-x-1">
+        <div class="bg-white rounded-full h-7 w-7 p-1 flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+          </svg>
+        </div>
+        <div class="h-7 w-7 p-1 flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-200 rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 12H4" />
+          </svg>
+        </div>
+        <div class="bg-white rounded-full h-7 w-7 p-1 flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">    
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+          </svg>
+        </div>
+        <div class="bg-white rounded-full h-7 w-7 p-1 flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+          </svg>
+        </div>
+        <div class="bg-white rounded-full h-7 w-7 p-1 flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2" />
+          </svg>
+        </div>
+      </div>
+      <div class="mt-4 flex flex-col space-y-1">
+        <template
+          v-for="task in tasks"
+          :key="task.id"
+        >
+          <div :class="['w-full border-l-4 rounded bg-white p-6 flex items-center', tagStyle[task.tag].borderClass]">
+            <div class="w-1/2 text-sm">{{ task.description }}</div>
+
+            <div class="w-1/5 flex">
+              <div :class="['px-2.5 py-1 rounded-md text-sm', tagStyle[task.tag].classes]">{{ tagStyle[task.tag].label }}</div>
+              <div class="flex-1"></div>
+            </div>
+
+            <div class="w-1/6 flex items-center">
+              <template
+                v-for="i in task.participant"
+                :key="i"
+              >
+                <div class="relative" style="width: 36px; height: 36px;">
+                  <img class="rounded-full border-2 border-white absolute" :style="{ left: `${-i * 16}px` }" :src="`https://picsum.photos/id/${i*10}/36`" alt="Alice">
+                </div>
+              </template>
+              <div class="relative" style="width: 36px; height: 36px;">
+                <div class="rounded-full border-2 border-white absolute bg-blue-50 flex justify-center items-center" :style="{ width: '36px', height: '36px', left: `${-task.participant * 16 - 16}px` }">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+            </svg>
+            <div class="text-sm text-gray-400 ml-1.5">{{ task.comment }}</div>
+
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
+            </svg>
+            <div class="text-sm text-gray-400 ml-1.5">{{ task.attachment }}</div>
+
+            <div class="flex-1 flex justify-end">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 justify-self-end" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />
+              </svg>
+            </div>
+          </div>
+        </template>
+      </div>
+    </div>
+  </div>
+
+  <div class="my-10 bg-white">
+    <div class="flex flex-row justify-center items-center space-x-5">
+      <a class="underline" target="_blank" rel="noopener noreferrer" href="https://dribbble.com/shots/14318192-To-do-Task-Management-Apps">source of design</a>
+      <a class="underline" target="_blank" rel="noopener noreferrer" href="https://github.com/Uier/ui-design-daily/tree/master/Dribbble-Todo-Task-Management">source of code</a>
+    </div>
+  </div>
+  <!-- Footer -->
+  <script src="./mock.js"></script>
+  <script>
+    Vue.createApp({
+      el: '#app',
+      data() {
+        return {
+          tasks,
+          tagStyle,
+        };
+      },
+    }).mount('#app');
+  </script>
+</body>
+</html>

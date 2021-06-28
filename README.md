@@ -19,3 +19,9 @@ module.exports = {
   },
 }
 ```
+
+## Using new feature of tailwind
+[What's New in Tailwind CSS v2.2](https://www.youtube.com/watch?v=DxcJbrs6rKk)
+```bash
+npx tailwindcss -o ./tailwind.css --jit --purge "./*.html" -w
+```
