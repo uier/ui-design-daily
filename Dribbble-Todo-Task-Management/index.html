@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="tailwind.css">
   <script src="https://unpkg.com/vue@3.1.0"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body style="font-family: 'Montserrat', sans-serif;">
@@ -20,43 +19,49 @@
   <div id="app" class="bg-gray-50 p-5">
     <div class="max-w-5xl mx-auto">
       <!-- Heading -->
-      <div>
+      <div class="mt-10">
         <h1 class="text-3xl font-light tracking-wide">Welcome back, <span class="font-semibold">Michael</span></h1>
       </div>
       <!-- button group -->
       <div class="mt-4 flex justify-end space-x-1">
         <div class="bg-white rounded-full h-7 w-7 p-1 flex items-center justify-center">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+          <svg class="h-5 w-5 text-gray-400"  width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z"/>  <circle cx="6" cy="10" r="2" />  <line x1="6" y1="4" x2="6" y2="8" />  <line x1="6" y1="12" x2="6" y2="20" />  <circle cx="12" cy="16" r="2" />  <line x1="12" y1="4" x2="12" y2="14" />  <line x1="12" y1="18" x2="12" y2="20" />  <circle cx="18" cy="7" r="2" />  <line x1="18" y1="4" x2="18" y2="5" />  <line x1="18" y1="9" x2="18" y2="20" />
           </svg>
         </div>
-        <div class="h-7 w-7 p-1 flex items-center justify-center">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-200 rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 12H4" />
+
+        <svg class="h-7 w-7 text-gray-200"  width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z"/>  <line x1="12" y1="5" x2="12" y2="19" />
+        </svg>
+        
+        <button
+          :class="[viewOption === 'grid' ? 'bg-blue-500 text-white' : 'bg-white text-gray-400', 'rounded-full h-7 w-7 p-1 flex items-center justify-center']"
+          @click="viewOption = 'grid'"
+        >
+          <svg class="h-5 w-5"  width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z"/>  <rect x="4" y="4" width="6" height="6" rx="1" />  <rect x="14" y="4" width="6" height="6" rx="1" />  <rect x="4" y="14" width="6" height="6" rx="1" />  <rect x="14" y="14" width="6" height="6" rx="1" />
           </svg>
-        </div>
-        <div class="bg-white rounded-full h-7 w-7 p-1 flex items-center justify-center">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">    
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+        </button>
+        <button
+          :class="[viewOption === 'list' ? 'bg-blue-500 text-white' : 'bg-white text-gray-400', 'rounded-full h-7 w-7 p-1 flex items-center justify-center']"
+          @click="viewOption = 'list'"
+        >
+          <svg class="h-5 w-5"  width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z"/>  <rect x="4" y="4" width="16" height="6" rx="2" />  <rect x="4" y="14" width="16" height="6" rx="2" />
           </svg>
-        </div>
-        <div class="bg-white rounded-full h-7 w-7 p-1 flex items-center justify-center">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 10h16M4 14h16M4 18h16" />
-          </svg>
-        </div>
-        <div class="bg-white rounded-full h-7 w-7 p-1 flex items-center justify-center">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2" />
+        </button>
+        <div class="bg-white text-gray-400 rounded-full h-7 w-7 p-1 flex items-center justify-center">
+          <svg class="h-5 w-5"  width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z"/>  <rect x="4" y="4" width="6" height="16" ry="2" />  <rect x="14" y="4" width="6" height="16" ry="2" />
           </svg>
         </div>
       </div>
-      <div class="mt-4 flex flex-col space-y-1">
+      <div class="mt-4 flex flex-col space-y-1" v-if="tasks && tagStyle" v-show="viewOption === 'list'">
         <template
           v-for="task in tasks"
           :key="task.id"
         >
-          <div :class="['w-full border-l-4 rounded bg-white p-6 flex items-center', tagStyle[task.tag].borderClass]">
+          <div :class="['w-full border-l-4 rounded bg-white p-6 flex items-center shadow', tagStyle[task.tag].borderClass]">
             <div class="w-1/2 text-sm">{{ task.description }}</div>
 
             <div class="w-1/5 flex">
@@ -100,6 +105,51 @@
           </div>
         </template>
       </div>
+      <div class="mt-4 grid grid-flow-row grid-cols-4 gap-4" v-if="tasks && tagStyle" v-show="viewOption === 'grid'">
+        <template
+          v-for="task in tasks"
+          :key="task.id"
+        >
+          <div :class="['border-t-4 rounded bg-white p-6 flex flex-col shadow', tagStyle[task.tag].borderClass]">
+            <div class="flex">
+              <div :class="['px-2.5 py-1 rounded-md text-sm', tagStyle[task.tag].classes]">{{ tagStyle[task.tag].label }}</div>
+              <div class="flex-1"></div>
+            </div>
+
+            <div class="mt-4 text-sm">{{ task.description }}</div>
+
+            <div class="flex-1"></div>
+
+            <div class="flex mt-8 items-center relative">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+              </svg>
+              <div class="text-sm text-gray-400 ml-1.5">{{ task.comment }}</div>
+  
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
+              </svg>
+              <div class="text-sm text-gray-400 ml-1.5">{{ task.attachment }}</div>
+
+              <div class="flex-1"></div>
+
+              <template
+                v-for="i in task.participant"
+                :key="i"
+              >
+                <div class="w-9 h-9 absolute" :style="{ right: `${(task.participant - i + 1) * 16}px` }">
+                  <img class="rounded-full border-2 border-white" :src="`https://picsum.photos/id/${i * 10}/36`" alt="Alice" />
+                </div>
+              </template>
+              <div class="w-9 h-9 z-10 rounded-full border-2 border-white bg-blue-50 flex justify-center items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </template>
+      </div>
     </div>
   </div>
 
@@ -114,11 +164,18 @@
   <script>
     Vue.createApp({
       el: '#app',
-      data() {
+      data: () => {
         return {
-          tasks,
-          tagStyle,
-        };
+          viewOption: 'grid',
+        }
+      },
+      computed: {
+        tasks() {
+          return tasks;
+        },
+        tagStyle() {
+          return tagStyle;
+        },
       },
     }).mount('#app');
   </script>

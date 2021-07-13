@@ -1,4 +1,17 @@
 module.exports = {
+  purge: {
+    enabled: true,
+    content: ['./*.html'],
+    safelist: [
+      'bg-blue-50', 'text-blue-500', 'border-blue-500',
+      'bg-yellow-50', 'text-yellow-500', 'border-yellow-400',
+      'bg-orange-50', 'text-orange-400', 'border-orange-400',
+      'bg-green-50', 'text-green-400', 'border-green-400',
+      'bg-purple-50', 'text-purple-400', 'border-purple-400',
+      'bg-rose-50', 'text-rose-400', 'border-rose-400',
+      'bg-violet-50', 'text-violet-400', 'border-violet-400',
+    ],
+  },
   theme: {
     extend: {
       colors: {

@@ -97,6 +97,14 @@ const tasks = [
     comment: 3,
     attachment: 1,
   },
+  {
+    id: 12,
+    description: 'Create Facebook Ad campaign for product launch',
+    tag: TAGS.OPERATIONS,
+    participant: 1,
+    comment: 3,
+    attachment: 1,
+  },
 ];
 
 const tagStyle = {
@@ -107,7 +115,7 @@ const tagStyle = {
   },
   [TAGS.SALES]: {
     label: 'Sales',
-    classes: 'bg-yellow-50 text-yellow-400',
+    classes: 'bg-yellow-50 text-yellow-500',
     borderClass: 'border-yellow-400'
   },
   [TAGS.HUMAN_RESOURCES]: {
