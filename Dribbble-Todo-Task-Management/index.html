@@ -69,21 +69,14 @@
               <div class="flex-1"></div>
             </div>
 
-            <div class="w-1/6 flex items-center">
-              <template
-                v-for="i in task.participant"
-                :key="i"
-              >
-                <div class="relative" style="width: 36px; height: 36px;">
-                  <img class="rounded-full border-2 border-white absolute" :style="{ left: `${-i * 16}px` }" :src="`https://picsum.photos/id/${i*10}/36`" alt="Alice">
-                </div>
-              </template>
-              <div class="relative" style="width: 36px; height: 36px;">
-                <div class="rounded-full border-2 border-white absolute bg-blue-50 flex justify-center items-center" :style="{ width: '36px', height: '36px', left: `${-task.participant * 16 - 16}px` }">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                  </svg>
-                </div>
+            <div class="w-1/6 flex items-center -space-x-5">
+              <div class="w-9 h-9" v-for="i in task.participant" :key="i">
+                <img class="rounded-full border-2 border-white" :src="`https://picsum.photos/id/${i * 10}/36`" alt="Alice" />
+              </div>
+              <div class="w-9 h-9 z-10 rounded-full border-2 border-white bg-blue-50 flex justify-center items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                </svg>
               </div>
             </div>
 
@@ -120,7 +113,7 @@
 
             <div class="flex-1"></div>
 
-            <div class="flex mt-8 items-center relative">
+            <div class="flex mt-8 items-center">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
               </svg>
@@ -133,18 +126,15 @@
 
               <div class="flex-1"></div>
 
-              <template
-                v-for="i in task.participant"
-                :key="i"
-              >
-                <div class="w-9 h-9 absolute" :style="{ right: `${(task.participant - i + 1) * 16}px` }">
+              <div class="flex items-center -space-x-5">
+                <div class="w-9 h-9" v-for="i in task.participant" :key="i">
                   <img class="rounded-full border-2 border-white" :src="`https://picsum.photos/id/${i * 10}/36`" alt="Alice" />
                 </div>
-              </template>
-              <div class="w-9 h-9 z-10 rounded-full border-2 border-white bg-blue-50 flex justify-center items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                </svg>
+                <div class="w-9 h-9 z-10 rounded-full border-2 border-white bg-blue-50 flex justify-center items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                  </svg>
+                </div>
               </div>
             </div>
           </div>
